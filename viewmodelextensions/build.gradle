@@ -18,25 +18,23 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
     }
 }
 
 dependencies {
     // Arch Components
-    api "android.arch.lifecycle:runtime:1.0.0-alpha9-1"
-    api "android.arch.lifecycle:extensions:1.0.0-alpha9-1"
-    annotationProcessor "android.arch.lifecycle:compiler:1.0.0-alpha9-1"
+    api rootProject.ext.lifecycleRuntime
+    api rootProject.ext.lifecycleExtensions
+    annotationProcessor rootProject.ext.lifecycleCompiler
 
     // Kotlin
-    api"org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.4-3"
+    api rootProject.ext.kotlinStdlib
 }
 
 // build a jar with source files
