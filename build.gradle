@@ -15,7 +15,7 @@ buildscript {
 
         supportAppCompat = 'com.android.support:appcompat-v7:26.1.0'
 
-        lifecycleVersion = '1.0.0-beta2'
+        lifecycleVersion = '1.0.0-rc1'
         lifecycleRuntime = "android.arch.lifecycle:runtime:$lifecycleVersion"
         lifecycleExtensions = "android.arch.lifecycle:extensions:$lifecycleVersion"
         lifecycleCompiler = "android.arch.lifecycle:compiler:$lifecycleVersion"
