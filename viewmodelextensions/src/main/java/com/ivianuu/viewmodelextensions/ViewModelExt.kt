@@ -52,8 +52,24 @@ inline fun <reified T : ViewModel> FragmentActivity.bindViewModel(key: String? =
  * This method is useful if your factory is a late init var
  */
 inline fun <reified T : ViewModel> FragmentActivity.bindViewModel(key: String? = null,
-                                                                  crossinline factoryProvider: () ->  ViewModelProvider.Factory)
-        = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(key, factoryProvider()) }
+                                                                  crossinline factory: () ->  ViewModelProvider.Factory)
+        = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(key, factory()) }
+
+/**
+ * Lazily binds the view model
+ * This method is useful if your factory is a late init var
+ */
+inline fun <reified T : ViewModel> FragmentActivity.bindViewModel(crossinline key: () -> String,
+                                                                  factory: ViewModelProvider.Factory? = null)
+        = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(key(), factory) }
+
+/**
+ * Lazily binds the view model
+ * This method is useful if your factory is a late init var
+ */
+inline fun <reified T : ViewModel> FragmentActivity.bindViewModel(crossinline key: () ->  String,
+                                                                  crossinline factory: () ->  ViewModelProvider.Factory)
+        = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(key(), factory()) }
 
 /**
  * Returns the viewmodel
@@ -85,5 +101,21 @@ inline fun <reified T : ViewModel> Fragment.bindViewModel(key: String? = null,
  * This method is useful if your factory is a late init var
  */
 inline fun <reified T : ViewModel> Fragment.bindViewModel(key: String? = null,
-                                                          crossinline factoryProvider: () ->  ViewModelProvider.Factory)
-        = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(key, factoryProvider()) }
+                                                          crossinline factory: () ->  ViewModelProvider.Factory)
+        = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(key, factory()) }
+
+/**
+ * Lazily binds the view model
+ * This method is useful if your factory is a late init var
+ */
+inline fun <reified T : ViewModel> Fragment.bindViewModel(crossinline key: () -> String,
+                                                                  factory: ViewModelProvider.Factory? = null)
+        = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(key(), factory) }
+
+/**
+ * Lazily binds the view model
+ * This method is useful if your factory is a late init var
+ */
+inline fun <reified T : ViewModel> Fragment.bindViewModel(crossinline key: () ->  String,
+                                                          crossinline factory: () ->  ViewModelProvider.Factory)
+        = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(key(), factory()) }
