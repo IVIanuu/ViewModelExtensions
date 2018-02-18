@@ -1,5 +1,6 @@
 package com.ivianuu.viewmodelextensions.sample
 
+import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -7,7 +8,7 @@ import com.ivianuu.viewmodelextensions.bindViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var factory: ViewModelProviders.DefaultFactory
+    private lateinit var factory: ViewModelProvider.Factory
 
     private val viewModel by bindViewModel<MainViewModel> { factory }
 
