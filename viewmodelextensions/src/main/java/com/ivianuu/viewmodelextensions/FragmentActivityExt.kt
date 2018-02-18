@@ -41,18 +41,9 @@ inline fun <reified T: ViewModel> FragmentActivity.bindViewModel(): Lazy<T> =
         lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>() }
 
 inline fun <reified T: ViewModel> FragmentActivity.bindViewModel(
-    factory: ViewModelProvider.Factory
-): Lazy<T> = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(factory) }
-
-inline fun <reified T: ViewModel> FragmentActivity.bindViewModel(
     crossinline factory: () -> ViewModelProvider.Factory
 ): Lazy<T> = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(factory()) }
 
 inline fun <reified T: ViewModel> FragmentActivity.bindViewModel(
     key: String
 ): Lazy<T> = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(key) }
-
-inline fun <reified T: ViewModel> FragmentActivity.bindViewModel(
-    crossinline key: () -> String,
-    crossinline factory: () -> ViewModelProvider.Factory
-): Lazy<T> = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(key(), factory()) }

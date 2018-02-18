@@ -3,12 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ViewModelExtensions.iml" filepath="$PROJECT_DIR$/ViewModelExtensions.iml" />
-      <module fileurl="file://C:\Users\IVIanuu\AndroidStudioProjects\ViewModelExtensions\ViewModelExtensions.iml" filepath="C:\Users\IVIanuu\AndroidStudioProjects\ViewModelExtensions\ViewModelExtensions.iml" />
       <module fileurl="file://C:\Users\IVIanuu\AndroidStudioProjects\ViewModelExtensions\sample\app.iml" filepath="C:\Users\IVIanuu\AndroidStudioProjects\ViewModelExtensions\sample\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
-      <module fileurl="file://C:\Users\IVIanuu\AndroidStudioProjects\ViewModelExtensions\sample\sample.iml" filepath="C:\Users\IVIanuu\AndroidStudioProjects\ViewModelExtensions\sample\sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/viewmodelextensions/viewmodelextensions.iml" filepath="$PROJECT_DIR$/viewmodelextensions/viewmodelextensions.iml" />
-      <module fileurl="file://C:\Users\IVIanuu\AndroidStudioProjects\ViewModelExtensions\viewmodelextensions\viewmodelextensions.iml" filepath="C:\Users\IVIanuu\AndroidStudioProjects\ViewModelExtensions\viewmodelextensions\viewmodelextensions.iml" />
     </modules>
   </component>
 </project>
