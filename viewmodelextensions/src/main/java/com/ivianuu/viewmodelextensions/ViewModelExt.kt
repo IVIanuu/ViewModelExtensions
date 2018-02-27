@@ -18,32 +18,31 @@ package com.ivianuu.viewmodelextensions
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
-import android.support.v4.app.FragmentActivity
+import android.arch.lifecycle.ViewModelStoreOwner
 
-inline fun <reified T : ViewModel> FragmentActivity.getViewModel(): T =
-    ViewModelProviders.of(this)[T::class.java]
+inline fun <reified T : ViewModel> ViewModelStoreOwner.getViewModel(): T =
+    ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[T::class.java]
 
-inline fun <reified T : ViewModel> FragmentActivity.getViewModel(
+inline fun <reified T : ViewModel> ViewModelStoreOwner.getViewModel(
     factory: ViewModelProvider.Factory
-): T = ViewModelProviders.of(this, factory)[T::class.java]
+): T = ViewModelProvider(this, factory)[T::class.java]
 
-inline fun <reified T : ViewModel> FragmentActivity.getViewModel(
+inline fun <reified T : ViewModel> ViewModelStoreOwner.getViewModel(
     key: String
-): T = ViewModelProviders.of(this)[key, T::class.java]
+): T = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[key, T::class.java]
 
-inline fun <reified T : ViewModel> FragmentActivity.getViewModel(
+inline fun <reified T : ViewModel> ViewModelStoreOwner.getViewModel(
     key: String,
     factory: ViewModelProvider.Factory
-): T = ViewModelProviders.of(this, factory).get(key, T::class.java)
+): T = ViewModelProvider(this, factory).get(key, T::class.java)
 
-inline fun <reified T: ViewModel> FragmentActivity.bindViewModel(): Lazy<T> =
-        lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>() }
+inline fun <reified T: ViewModel> ViewModelStoreOwner.bindViewModel(): Lazy<T> =
+    lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>() }
 
-inline fun <reified T: ViewModel> FragmentActivity.bindViewModel(
+inline fun <reified T: ViewModel> ViewModelStoreOwner.bindViewModel(
     crossinline factory: () -> ViewModelProvider.Factory
 ): Lazy<T> = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(factory()) }
 
-inline fun <reified T: ViewModel> FragmentActivity.bindViewModel(
+inline fun <reified T: ViewModel> ViewModelStoreOwner.bindViewModel(
     key: String
 ): Lazy<T> = lazy(LazyThreadSafetyMode.NONE) { getViewModel<T>(key) }

@@ -30,6 +30,9 @@ android {
 }
 
 dependencies {
+    // Android Support
+    api rootProject.ext.supportFragments
+
     // Arch Components
     api rootProject.ext.lifecycleExtensions
 

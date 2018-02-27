@@ -12,7 +12,8 @@ buildscript {
 
         mavenPlugin = 'com.github.dcendents:android-maven-gradle-plugin:2.0'
 
-        supportAppCompat = 'com.android.support:appcompat-v7:27.0.2'
+        supportAppCompat = 'com.android.support:appcompat-v7:27.1.0'
+        supportFragments = 'com.android.support:support-fragment:27.1.0'
 
         lifecycleVersion = '1.1.0'
         lifecycleExtensions = "android.arch.lifecycle:extensions:$lifecycleVersion"
